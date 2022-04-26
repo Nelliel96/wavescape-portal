@@ -21,7 +21,10 @@ jobs:
       azureSubscription: ${{parameters.azureSubscription}}
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
-      inlineScript: './bin/infra-standup.sh'
+      inlineScript: #'./bin/infra-standup.sh' 
+      |
+      az --version
+      az account show
 
 - job: DeployPortal
   dependsOn: StandupAzureInfra
