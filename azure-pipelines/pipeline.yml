@@ -13,8 +13,14 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-  script: |
+variables:
+  #AZURE_SUBSCRIPTION: '022f9a31-8566-4d3c-a2ef-5f0b8f3a6b95'
+  #AZURE_DEFAULTS_LOCATION: 'westus2'
+  GIT_REPO_URL: $(Build.Repository.Uri)
+  GIT_BRANCH_NAME: $(Build.SourceBranchName)
+
+stages:
+- script: |
     az --version
     curl -sL https://packages.microsoft.com/keys/microsoft.asc |
     gpg --dearmor |
@@ -27,13 +33,6 @@ steps:
     az --version
   displayName: Upgrade Azure CLI
 
-variables:
-  #AZURE_SUBSCRIPTION: '022f9a31-8566-4d3c-a2ef-5f0b8f3a6b95'
-  #AZURE_DEFAULTS_LOCATION: 'westus2'
-  GIT_REPO_URL: $(Build.Repository.Uri)
-  GIT_BRANCH_NAME: $(Build.SourceBranchName)
-
-stages:
 - stage: Build
   jobs:
   - template: job-build.yml
