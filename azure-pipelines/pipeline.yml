@@ -30,7 +30,7 @@ stages:
   variables:
     AZURE_DEFAULTS_GROUP: 'rg-testNelly'
     ENVIRONMENT_TYPE: 'staging'
-    WS_RUNNER_GROUP: 'rg-testNelly'
+    WS_RUNNER_GROUP: 'rg-runnerNelly'
     AZURE_SUBSCRIPTION: '90d7af21-b3a1-4bf8-a149-8e1fcc47e337'
     AZURE_DEFAULTS_LOCATION: 'westeurope'
   jobs:
