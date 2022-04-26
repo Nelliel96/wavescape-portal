@@ -9,7 +9,6 @@ parameters:
 - name: azureSubscription
   type: string
   #default: 'wavescape'
-  #'./bin/infra-standup.sh'
 
 jobs:
 - job: StandupAzureInfra
@@ -22,9 +21,7 @@ jobs:
       azureSubscription: ${{parameters.azureSubscription}}
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
-      inlineScript: |
-        az --version
-        az account show
+      inlineScript: './bin/infra-standup.sh'
 
 - job: DeployPortal
   dependsOn: StandupAzureInfra
