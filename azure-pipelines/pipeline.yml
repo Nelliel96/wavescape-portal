@@ -13,8 +13,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: |
+script: |
     az --version
     curl -sL https://packages.microsoft.com/keys/microsoft.asc |
     gpg --dearmor |
@@ -25,8 +24,8 @@ steps:
     sudo apt-get update
     az upgrade --yes
     az --version
-  displayName: Upgrade Azure CLI
-  
+displayName: Upgrade Azure CLI
+
 variables:
   #AZURE_SUBSCRIPTION: '022f9a31-8566-4d3c-a2ef-5f0b8f3a6b95'
   #AZURE_DEFAULTS_LOCATION: 'westus2'
