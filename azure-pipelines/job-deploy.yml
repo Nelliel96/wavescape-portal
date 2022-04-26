@@ -41,7 +41,6 @@ jobs:
       echo $(deploymentToken)
       echo $(staticAppName)
       echo $(appInsightsConnString)
-      pip install --pre azure-cli --extra-index-url https://azurecliprod.blob.core.windows.net/edge
   - powershell: |
       Write-Host '$(deploymentToken)'
       $date=$(Get-Date -format yyyyMMddHHmm)

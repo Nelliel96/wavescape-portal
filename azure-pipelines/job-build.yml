@@ -14,6 +14,12 @@ jobs:
       inputs:
         versionSpec: '3.9'
         architecture: 'x64'
+    # Update pip to latest
+    - bash: python -m pip install --upgrade pip
+      displayName: 'Upgrade pip'
+    # Update to latest Azure CLI version, min version required for Azure DevOps is 2.10.1
+    - bash: pip install --pre azure-cli --extra-index-url https://azurecliprod.blob.core.windows.net/edge
+      displayName: 'Upgrade Azure CLI'
     - bash: './bin/api-build.sh'
       name: Build
     - publish: '$(Build.apiArtifact)'
