@@ -49,7 +49,7 @@ resource runnerApi 'Microsoft.Web/sites@2020-12-01' existing = {
   scope: resourceGroup(runnerResourceGroupName)
 }
 
-resource functionApp 'Microsoft.Web/sites@2020-12-01' = {
+resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp,linux'
