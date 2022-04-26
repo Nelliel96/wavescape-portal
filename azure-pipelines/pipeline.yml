@@ -20,19 +20,6 @@ variables:
   GIT_BRANCH_NAME: $(Build.SourceBranchName)
 
 stages:
-- script: |
-    az --version
-    curl -sL https://packages.microsoft.com/keys/microsoft.asc |
-    gpg --dearmor |
-    sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
-    AZ_REPO=$(lsb_release -cs)
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
-    sudo tee /etc/apt/sources.list.d/azure-cli.list
-    sudo apt-get update
-    az upgrade --yes
-    az --version
-  displayName: Upgrade Azure CLI
-
 - stage: Build
   jobs:
   - template: job-build.yml
@@ -51,5 +38,16 @@ stages:
     parameters:
       azureSubscription: 'MAIC - TEK Experts CR - v-gengon Group#1(90d7af21-b3a1-4bf8-a149-8e1fcc47e337)'
 
-  
-
+steps:
+- script: |
+    az --version
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc |
+    gpg --dearmor |
+    sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+    AZ_REPO=$(lsb_release -cs)
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
+    sudo tee /etc/apt/sources.list.d/azure-cli.list
+    sudo apt-get update
+    az upgrade --yes
+    az --version
+  displayName: Upgrade Azure CLI
