@@ -36,3 +36,4 @@ resource staticWebApp 'Microsoft.Web/staticSites@2020-12-01' = {
 }
 
 output staticAppName string = staticWebApp.name
+output messageSite string = 'Finalizo Site'

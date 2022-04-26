@@ -116,3 +116,4 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
 }
 
 output functionAppName string = functionAppName
+output messageApi string = 'Finalizo Api'

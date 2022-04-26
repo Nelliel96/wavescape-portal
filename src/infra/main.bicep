@@ -93,3 +93,4 @@ module site 'site.bicep' = {
 output functionAppName string = api.outputs.functionAppName
 output staticAppName string = site.outputs.staticAppName
 output appInsightsConnString string = appInsights.properties.ConnectionString
+output messageMain string = 'Finalizo Main'
