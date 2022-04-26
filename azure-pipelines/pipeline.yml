@@ -13,7 +13,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-script: |
+steps:
+  script: |
     az --version
     curl -sL https://packages.microsoft.com/keys/microsoft.asc |
     gpg --dearmor |
