@@ -44,12 +44,12 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   }
 }
 
-resource runnerApi 'Microsoft.Web/sites@2021-02-01' existing = {
+resource runnerApi 'Microsoft.Web/sites@2020-12-01' existing = {
   name: '${runnerResourceGroupName}-api-functionApp'
   scope: resourceGroup(runnerResourceGroupName)
 }
 
-resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
+resource functionApp 'Microsoft.Web/sites@2020-12-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp,linux'

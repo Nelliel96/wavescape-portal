@@ -14,7 +14,7 @@ param repoUrl string
 param branch string
 param location string = resourceGroup().location
 
-resource functionApp 'Microsoft.Web/sites@2021-02-01' existing = {
+resource functionApp 'Microsoft.Web/sites@2020-12-01' existing = {
   name: functionAppName
 }
 
