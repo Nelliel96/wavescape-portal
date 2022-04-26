@@ -12,7 +12,6 @@ source ./bin/lib/helpers.bash
 source ./bin/lib/infra.bash
 
 azLogin
-az upgrade --yes
 
 template=src/infra/main.bicep
 deploymentName=$AZURE_DEFAULTS_GROUP
