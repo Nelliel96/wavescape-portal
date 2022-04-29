@@ -51,7 +51,7 @@ jobs:
   - task: AzureStaticWebApp@0
     inputs:
       app_location: 'src/portal'
-      api_location: ''
+      api_location: ""
       output_location: build
     env:
       azure_static_web_apps_api_token: '$(deploymentToken)'
