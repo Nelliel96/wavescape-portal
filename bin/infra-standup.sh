@@ -67,6 +67,7 @@ staticAppName=$(outputLookup staticAppName)
 info "Getting function app id"
 functionAppId=$(az functionapp show --name $functionAppName --query 'id' -o tsv)
 info "getting connections"
+info $staticAppName
 connections=$(az staticwebapp functions show -n $staticAppName)
 
 
