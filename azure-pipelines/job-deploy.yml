@@ -22,7 +22,9 @@ jobs:
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: './bin/infra-standup.sh'
-
+  - powershell: |
+      choco uninstall azure-cli --version=2.36.0  --force
+      choco install azure-cli --version=2.34.0 --force
 - job: DeployPortal
   dependsOn: StandupAzureInfra
   variables:
