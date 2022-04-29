@@ -57,17 +57,26 @@ while IFS=$'\t' read -r key val; do
 done
 
 ## connect authentication
+info "Getting function app name"
 functionAppName=$(outputLookup functionAppName)
+info "getting static app name"
 staticAppName=$(outputLookup staticAppName)
 
+
+
+info "Getting function app id"
 functionAppId=$(az functionapp show --name $functionAppName --query 'id' -o tsv)
+info "getting connections"
 connections=$(az staticwebapp functions show -n $staticAppName)
 
+
+
+info "before if condition"
 if [ "$connections" == "[]" ]; then
-    info "Connecting function app to static web app"
-    az staticwebapp functions link \
-        --name $staticAppName \
-        --function-resource-id $functionAppId
+info "Connecting function app to static web app"
+az staticwebapp functions link \
+--name $staticAppName \
+--function-resource-id $functionAppId
 fi
 
 
