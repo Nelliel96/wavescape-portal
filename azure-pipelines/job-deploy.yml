@@ -15,9 +15,8 @@ jobs:
   steps:
   - checkout: self
   - powershell: |
-      Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-      choco uninstall azure-cli --version=2.35.0  --force
-      choco install azure-cli --version=2.34.0 --force
+      brew uninstall azure-cli
+      pip3 install azure-cli==2.34.0
   - task: AzureCLI@2
     name: AzureDeployment
     displayName: Standup Azure Infrastructure
