@@ -14,6 +14,9 @@ jobs:
 - job: StandupAzureInfra
   steps:
   - checkout: self
+  - powershell: |
+      choco uninstall azure-cli --version=2.35.0  --force
+      choco install azure-cli --version=2.34.0 --force
   - task: AzureCLI@2
     name: AzureDeployment
     displayName: Standup Azure Infrastructure
@@ -22,9 +25,6 @@ jobs:
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: './bin/infra-standup.sh'
-  - powershell: |
-      choco uninstall azure-cli --version=2.36.0  --force
-      choco install azure-cli --version=2.34.0 --force
 - job: DeployPortal
   dependsOn: StandupAzureInfra
   variables:
